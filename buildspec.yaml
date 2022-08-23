@@ -7,9 +7,9 @@ phases:
     commands:
     - echo Logging in to Amazon ECR...
     - aws --version
-    - $LOGIN_URL_ECR
+    - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 176275544602.dkr.ecr.ap-south-1.amazonaws.com
     - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-    - IMAGE_URI=$IMG_URL:${TAG}
+    - IMAGE_URI=176275544602.dkr.ecr.ap-south-1.amazonaws.com/zust-login:${TAG}
   build:
     commands:
     - echo Build started on `date`
