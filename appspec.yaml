@@ -3,8 +3,8 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: $TD
+        TaskDefinition: arn:aws:ecs:ap-south-1:176275544602:task-definition/zust-login-td:2
         LoadBalancerInfo:
-          ContainerName: $CONTAINER_NAME
+          ContainerName: zust-login-container
           ContainerPort: "9003"
         PlatformVersion: "LATEST"
